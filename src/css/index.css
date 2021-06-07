@@ -1,0 +1,16 @@
+html, body{
+    margin: 0;
+    padding: 0;
+}
+
+.container{
+    max-width: 1170px;
+    margin: auto;
+    height: 200px;
+}
+
+.center{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
