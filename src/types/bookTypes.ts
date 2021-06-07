@@ -1,10 +1,10 @@
 export interface booksState {
-    books: any[],
-    loading: boolean,
-    error: null | string
+    books: any[];
+    loading: boolean;
+    error: null | string;
 }
 
-enum BookActionTypes {
+export enum BookActionTypes {
     FETCH_BOOKS = 'FETCH_BOOKS',
     FETCH_BOOKS_ERROR = 'FETCH_BOOKS_ERROR',
     FETCH_BOOKS_SUCCESS = 'FETCH_BOOKS_SUCCESS'
@@ -12,7 +12,7 @@ enum BookActionTypes {
 
 interface FetchBooksAction{
     type: BookActionTypes.FETCH_BOOKS,
-    payload?: any
+    payload?: any[]
 }
 
 interface FetchBooksErrorAction{
