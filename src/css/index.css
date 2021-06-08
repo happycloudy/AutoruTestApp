@@ -1,6 +1,8 @@
 html, body{
     margin: 0;
     padding: 0;
+    background: rgb(80,8,5);
+    background: radial-gradient(circle, rgba(80,8,5,1) 0%, rgba(30,0,0,1) 100%);
 }
 
 .container{

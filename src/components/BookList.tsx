@@ -1,40 +1,56 @@
 import React, {useEffect} from 'react';
 import {useTypedSelector} from "../hooks/useTypedSelector";
+import NotFound from "./NotFound";
+import Loader from "./Loader";
+import BookSnippet from "./BookSnippet";
 
 const BookList: React.FC = () => {
-    const {books, error, loading} = useTypedSelector(state => state.book)
-
-    if (loading){
-        return <h1>Идет загрузка...</h1>
+    const getLink = (isbn: string) => {
+        if (isbn) {
+            return `http://covers.openlibrary.org/b/isbn/${isbn[0]}-M.jpg`
+        }
+        return ''
     }
 
-    if (error){
+    const {books, error, loading} = useTypedSelector(state => state.book)
+
+    if (loading) {
+        return <Loader/>
+    }
+
+    if (error) {
         return <h1>{error}</h1>
     }
 
-
+    if (books.length === 0) {
+        return <NotFound/>
+    }
+    console.log(books)
     return (
         <div>
-            <ul>
+            <ul className='container'>
                 {
-                    books.map( (book,id) =>{
-                        if(book.author_name){
-                            return <li key={id}> Автор:
-                                {
-                                    book.author_name
-                                }
-                            </li>
+                    books.map((book, id) => {
+                        if (book.author_name) {
+                            return <BookSnippet key={book.isbn}
+                                                img={getLink(book.isbn)}
+                                                author={book.author_name}
+                                                publisher={book.publisher}
+                                                title={book.title}
+                                                isbn={book.isbn}
+                            />
                         }
-                        return <li key={id}> Опубликовал:
-                            {
-                                book.publisher
-                            }
-                        </li>
+                        return <BookSnippet key={book.isbn}
+                                            img={getLink(book.isbn)}
+                                            publisher={book.publisher}
+                                            title={book.title}
+                                            isbn={book.isbn}
+                        />
                     })
                 }
             </ul>
         </div>
     );
-};
+}
 
 export default BookList;

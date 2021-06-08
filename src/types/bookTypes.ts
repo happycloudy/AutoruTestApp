@@ -7,7 +7,8 @@ export interface booksState {
 export enum BookActionTypes {
     FETCH_BOOKS = 'FETCH_BOOKS',
     FETCH_BOOKS_ERROR = 'FETCH_BOOKS_ERROR',
-    FETCH_BOOKS_SUCCESS = 'FETCH_BOOKS_SUCCESS'
+    FETCH_BOOKS_SUCCESS = 'FETCH_BOOKS_SUCCESS',
+    FETCH_BOOKS_NOT_FOUND = 'FETCH_BOOKS_NOT_FOUND'
 }
 
 interface FetchBooksAction{
@@ -24,5 +25,6 @@ interface FetchBooksSuccessAction{
     type: BookActionTypes.FETCH_BOOKS_SUCCESS,
     payload: any[]
 }
+
 
 export type BookAction = FetchBooksAction | FetchBooksSuccessAction | FetchBooksErrorAction
