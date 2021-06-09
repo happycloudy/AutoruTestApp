@@ -1,7 +1,11 @@
 .book-wrap{
     display: flex;
-    margin-top: 1.5rem;
-    border: 2px solid ;
+    margin-top: 2rem;
+    width: 30vw;
+    height: 30vh;
+    -webkit-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    -moz-box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
+    box-shadow: 4px 4px 8px 0px rgba(34, 60, 80, 0.2);
     border-radius: 10px;
     background-color: #4CAF50;
 }

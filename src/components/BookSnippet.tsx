@@ -8,7 +8,8 @@ interface IProps {
     author?: string,
     title: string,
     isbn: string[],
-    publisher: string
+    publisher: string[]
+    date: string
 }
 
 const BookSnippet = (props: IProps) => {
@@ -36,7 +37,14 @@ const BookSnippet = (props: IProps) => {
             </div>
             {
                active?
-                   <ModalBookSnippet handleClose={handleClose}/>:
+                   <ModalBookSnippet handleClose={handleClose}
+                                     img={props.img}
+                                     publisher={props.publisher}
+                                     title={props.title}
+                                     isbn={props.isbn}
+                                     date={props.date}
+                                     author={props.author}
+                   />:
                    null
             }
         </>

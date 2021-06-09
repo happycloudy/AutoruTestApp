@@ -38,6 +38,7 @@ const BookList: React.FC = () => {
                                                 publisher={book.publisher}
                                                 title={book.title}
                                                 isbn={book.isbn}
+                                                date={book.first_publish_year}
                             />
                         }
                         return <BookSnippet key={book.isbn}
@@ -45,6 +46,7 @@ const BookList: React.FC = () => {
                                             publisher={book.publisher}
                                             title={book.title}
                                             isbn={book.isbn}
+                                            date={book.first_publish_year}
                         />
                     })
                 }
